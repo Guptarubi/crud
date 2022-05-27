@@ -44,7 +44,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $posts=Post::all();
+        return view('show',['posts'=>$posts]);
     }
 
     /**
@@ -53,9 +54,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post,$id)
     {
-        //
+       $posts=Post::find($id);
+       return view('edit',['posts'=>$posts]);
     }
 
     /**
@@ -65,10 +67,16 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Post $post, $id)
     {
-        //
+        $posts=Post::find($id);
+        $posts->post_title=$request->get('title');
+        $posts->post_title=$request->get('author');
+
+        $posts->save();
+        return redirect('show');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -76,8 +84,10 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post,$id)
     {
-        //
+       $post=Post::find($id);
+       $post->delete();
+       return redirect('show');
     }
 }

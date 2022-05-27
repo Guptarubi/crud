@@ -5,18 +5,18 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">Add Data</h1>
-            <form method="POST" action="store">
+            <h1 class="text-center">Update Data</h1>
+            <form method="POST" action="/update/{{$posts->id}}">
                 @csrf
                 <div class="mb-3">
                     <label><b>Post title:</b></label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="title" class="form-control" value={{$posts->post_title}}>
                 </div>
                 <div class="mb-3">
                     <label><b>Post author:</b></label>
-                    <input type="text" name="author" class="form-control">
+                    <input type="text" name="author" class="form-control" value={{$posts->post_author}}>
                 </div>
-                <input type="submit" name="insert" value="Insert" class="btn btn-primary">
+                <input type="submit" name="update" value="Update" class="btn btn-success">
             </form>
         </div>
     </body>

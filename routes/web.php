@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::post('store',[PostController::class,'store']);
+Route::get('show',[PostController::class,'show']);
+Route::get('delete/{id}',[PostController::class,'destroy']);
+Route::get('edit/{id}',[PostController::class,'edit']);
+Route::post('update/{id}',[PostController::class,'update']);
