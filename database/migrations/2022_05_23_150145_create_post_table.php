@@ -13,11 +13,17 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('employee', function (Blueprint $table) {
             $table->id();
-            $table->string('post_title');
-            $table->string('post_author');
+            $table->string('Name');
+            $table->string('Email');
+            $table->string('Mobile_No');
+            $table->string('password');
+            $table->string('DOB');
+            $table->string('profile_image');
+            $table->string('Status');
             $table->timestamps();
+            
         });
     }
 
@@ -28,6 +34,7 @@ class CreatePostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('employee');
+        
     }
 }

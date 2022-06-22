@@ -23,3 +23,9 @@ Route::get('show',[PostController::class,'show']);
 Route::get('delete/{id}',[PostController::class,'destroy']);
 Route::get('edit/{id}',[PostController::class,'edit']);
 Route::post('update/{id}',[PostController::class,'update']);
+Route::post('add-employee',[PostController::class,'store']);
+Route::post('register',[PostController::class,'register']);
+Route::get('/status-update/{id}',[PostController::class,'status_update']);
+
+
+
